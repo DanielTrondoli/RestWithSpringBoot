@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.erudio.data.vo.PersonVO;
 import br.com.erudio.model.Person;
 import br.com.erudio.service.PersonServices;
 
@@ -25,7 +25,7 @@ public class PersonController {
 	private PersonServices pService;
 	
 	@GetMapping("/{id}")
-	public Person findById(@PathVariable(value="id") Long id) throws Exception {						
+	public PersonVO findById(@PathVariable(value="id") Long id) throws Exception {						
 		return pService.findById(id);		
 	}
 	
@@ -35,17 +35,17 @@ public class PersonController {
 	}
 	
 	@GetMapping
-	public List<Person> findAll() throws Exception {		
+	public List<PersonVO> findAll() throws Exception {		
 		return pService.findAll();	
 	}
 	
 	@PostMapping
-	public Person create(@RequestBody Person p) throws Exception {		
+	public PersonVO create(@RequestBody Person p) throws Exception {		
 		return pService.create(p);	
 	}
 	
 	@PutMapping
-	public Person update(@RequestBody Person p) throws Exception {		
+	public PersonVO update(@RequestBody PersonVO p) throws Exception {		
 		return pService.update(p);	
 	}
 	
