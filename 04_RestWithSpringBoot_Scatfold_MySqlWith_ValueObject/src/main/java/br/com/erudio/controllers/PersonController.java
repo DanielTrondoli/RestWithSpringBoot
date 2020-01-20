@@ -40,7 +40,7 @@ public class PersonController {
 	}
 	
 	@PostMapping
-	public PersonVO create(@RequestBody Person p) throws Exception {		
+	public PersonVO create(@RequestBody PersonVO p) throws Exception {		
 		return pService.create(p);	
 	}
 	
