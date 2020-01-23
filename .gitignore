@@ -1,9 +1,11 @@
 /target/
 
-/.classpath
-/.springBeans
-/.project
-/.settings/
-/.gradle/
+.classpath
+.springBeans
+.project
+.settings/
+.gradle/
 /build/
-/.metadata/
+
+.metadata/
+/06_RestWithSpringBoot_Scatfold_MySql_Content_Negotiation/

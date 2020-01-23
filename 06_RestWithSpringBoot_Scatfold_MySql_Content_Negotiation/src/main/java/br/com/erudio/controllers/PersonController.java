@@ -24,7 +24,7 @@ public class PersonController {
 	@Autowired
 	private PersonServices pService;
 	
-	@GetMapping(value = "/{id}")
+	@GetMapping(value = "/{id}", produces = {"application/json","application/xml"})
 	public PersonVO findById(@PathVariable(value="id") Long id) throws Exception {						
 		return pService.findById(id);		
 	}
@@ -34,17 +34,19 @@ public class PersonController {
 		pService.delete(id);		
 	}
 	
-	@GetMapping
+	@GetMapping(produces = {"application/json","application/xml"})
 	public List<PersonVO> findAll() throws Exception {		
 		return pService.findAll();	
 	}
 	
-	@PostMapping
+	@PostMapping(produces = {"application/json","application/xml"},
+				consumes = {"application/json","application/xml"})
 	public PersonVO create(@RequestBody PersonVO p) throws Exception {		
 		return pService.create(p);	
 	}
 	
-	@PutMapping
+	@PutMapping(produces = {"application/json","application/xml"},
+				consumes = {"application/json","application/xml"})
 	public PersonVO update(@RequestBody PersonVO p) throws Exception {		
 		return pService.update(p);	
 	}
