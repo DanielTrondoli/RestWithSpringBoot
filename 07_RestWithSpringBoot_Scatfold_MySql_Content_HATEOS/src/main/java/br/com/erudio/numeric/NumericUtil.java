@@ -19,4 +19,7 @@ public class NumericUtil {
 		String number = num.replaceAll(",", ".");		
 		return number.matches("[-+]?[0-9]*\\.?[0-9]+");
 	}
+	
+	
+	
 }

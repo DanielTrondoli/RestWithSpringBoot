@@ -23,7 +23,7 @@ public class DozerConverterTest {
 	public void parseEntityToVOTest() {
 		PersonVO output = DozerConverter.parseObject(inputObject.mockEntity(), PersonVO.class);
 		
-		Assert.assertEquals(0L, output.getId());
+		Assert.assertEquals(0L, output.getKey());
 		Assert.assertEquals("Name Test: 0", output.getName());
 		Assert.assertEquals("Last Name Test: 0", output.getLastName());
 		Assert.assertEquals("Addres Test: 0", output.getAddres());
@@ -36,7 +36,7 @@ public class DozerConverterTest {
 		
 		PersonVO output = outputList.get(0);
 		
-		Assert.assertEquals(0L, output.getId());
+		Assert.assertEquals(0L, output.getKey());
 		Assert.assertEquals("Name Test: 0", output.getName());
 		Assert.assertEquals("Last Name Test: 0", output.getLastName());
 		Assert.assertEquals("Addres Test: 0", output.getAddres());
@@ -44,7 +44,7 @@ public class DozerConverterTest {
 
 		output = outputList.get(4);
 		
-		Assert.assertEquals(4L, output.getId());
+		Assert.assertEquals(4L, output.getKey());
 		Assert.assertEquals("Name Test: 4", output.getName());
 		Assert.assertEquals("Last Name Test: 4", output.getLastName());
 		Assert.assertEquals("Addres Test: 4", output.getAddres());
@@ -52,7 +52,7 @@ public class DozerConverterTest {
 		
 		output = outputList.get(7);
 		
-		Assert.assertEquals(7L, output.getId());
+		Assert.assertEquals(7L, output.getKey());
 		Assert.assertEquals("Name Test: 7", output.getName());
 		Assert.assertEquals("Last Name Test: 7", output.getLastName());
 		Assert.assertEquals("Addres Test: 7", output.getAddres());

@@ -6,13 +6,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import br.com.erudio.serialization.converter.YamlJackson2HttpMessageConverter;
 
 @Configuration
-@EnableWebMvc
 public class WebConfig implements WebMvcConfigurer{
 	
 	private static final MediaType MEDIA_TYPE_YML = MediaType.valueOf("application/x-yaml");
@@ -27,14 +25,37 @@ public class WebConfig implements WebMvcConfigurer{
 	@Override
 	public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
 		
+		//  VIA EXTENÇÃO localhost:8080/pearson.x-yaml
+//		  configurer.favorPathExtension(false)
+//				  .ignoreAcceptHeader(false)
+//				  .defaultContentType(MediaType.APPLICATION_JSON)
+//				  .mediaType("json", MediaType.APPLICATION_JSON)
+//				  .mediaType("xml", MediaType.APPLICATION_XML)
+//				  .mediaType("x-yaml", MEDIA_TYPE_YML);
+//		  
+		 
+		
+//		 VIA QUERY PARAMETRO localhost:8080/pearson?mediaType=xml
 		configurer.favorPathExtension(false)
-				  .favorParameter(false)
+				  .favorParameter(true)
+				  .parameterName("mediaType")
 				  .ignoreAcceptHeader(false)
 				  .useRegisteredExtensionsOnly(false)
 				  .defaultContentType(MediaType.APPLICATION_JSON)
 				  .mediaType("json", MediaType.APPLICATION_JSON)
 				  .mediaType("xml", MediaType.APPLICATION_XML)
 				  .mediaType("x-yaml", MEDIA_TYPE_YML);
+				  
+		// pelo header
+//		configurer.favorPathExtension(false)
+//		  .favorParameter(false)
+//		  .ignoreAcceptHeader(false)
+//		  .useRegisteredExtensionsOnly(false)
+//		  .defaultContentType(MediaType.APPLICATION_JSON)
+//		  .mediaType("json", MediaType.APPLICATION_JSON)
+//		  .mediaType("xml", MediaType.APPLICATION_XML)
+//		  .mediaType("x-yaml", MEDIA_TYPE_YML);
+		
 	}
 
 }
